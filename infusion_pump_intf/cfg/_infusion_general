@@ -1,0 +1,7 @@
+host_ip 192.168.0.1
+dev_ip 192.168.0.2
+nw_port 172361
+pwd_inf 0000
+pwd_conf 1111
+pwd_fill 2222
+pwd_diag 3333

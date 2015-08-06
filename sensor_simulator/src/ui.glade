@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<glade-interface>
+  <!-- interface-requires gtk+ 2.16 -->
+  <!-- interface-naming-policy project-wide -->
+  <widget class="GtkWindow" id="window">
+    <property name="width_request">392</property>
+    <property name="height_request">181</property>
+    <property name="visible">True</property>
+    <property name="title" translatable="yes">Sensor Simulator</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center</property>
+    <signal name="destroy" handler="on_window_destroy"/>
+    <child>
+      <widget class="GtkLayout" id="layout">
+        <property name="visible">True</property>
+        <child>
+          <widget class="GtkButton" id="btn_set">
+            <property name="label" translatable="yes">Set</property>
+            <property name="width_request">86</property>
+            <property name="height_request">34</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btn_set_clicked"/>
+          </widget>
+          <packing>
+            <property name="x">287</property>
+            <property name="y">99</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="chk_lid">
+            <property name="label" translatable="yes">Lid</property>
+            <property name="width_request">98</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="x">285</property>
+            <property name="y">19</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="chk_pressure">
+            <property name="label" translatable="yes">Pressure</property>
+            <property name="width_request">117</property>
+            <property name="height_request">33</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="x">22</property>
+            <property name="y">19</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="chk_temperature">
+            <property name="label" translatable="yes">Temperature</property>
+            <property name="width_request">112</property>
+            <property name="height_request">37</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="x">137</property>
+            <property name="y">16</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="chk_airinline">
+            <property name="label" translatable="yes">Air-in-Line</property>
+            <property name="width_request">99</property>
+            <property name="height_request">33</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="x">21</property>
+            <property name="y">58</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="chk_battery">
+            <property name="label" translatable="yes">Battery in use</property>
+            <property name="width_request">120</property>
+            <property name="height_request">37</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="x">136</property>
+            <property name="y">55</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkSpinButton" id="spin_battery">
+            <property name="width_request">90</property>
+            <property name="height_request">27</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="editable">False</property>
+            <property name="invisible_char">&#x25CF;</property>
+            <property name="adjustment">0 0 100 1 10 0</property>
+          </widget>
+          <packing>
+            <property name="x">170</property>
+            <property name="y">104</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_battery">
+            <property name="width_request">150</property>
+            <property name="height_request">24</property>
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Battery percentage:</property>
+          </widget>
+          <packing>
+            <property name="x">15</property>
+            <property name="y">105</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHSeparator" id="separator">
+            <property name="width_request">390</property>
+            <property name="height_request">24</property>
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="y">143</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_info">
+            <property name="width_request">435</property>
+            <property name="height_request">24</property>
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Status</property>
+            <property name="justify">right</property>
+            <property name="ellipsize">middle</property>
+          </widget>
+          <packing>
+            <property name="x">-45</property>
+            <property name="y">157</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>

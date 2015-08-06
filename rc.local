@@ -1,0 +1,70 @@
+#!/bin/sh
+print start other programs..
+
+
+
+
+
+
+
+
+
+
+#######################################################################
+## USB driver
+#######################################################################
+print Starting USB driver...
+
+io-usb -dohci ioport=0x49000000,irq=26
+
+#######################################################################
+## HID Input driver (USB)
+##  - requires USB to be active
+#######################################################################
+print Starting io-hid USB input driver...
+
+waitfor /dev/io-usb/io-usb 4
+io-hid -dusb
+
+#######################################################################
+## Start Photon
+#######################################################################
+
+PHOTON_PATH=/usr/photon
+PHOTON=/dev/photon
+PHOTON_PATH2=/usr/photon
+print Starting Photon server...
+Photon
+waitfor /dev/photon 4
+
+#######################################################################
+## Start graphics driver and input drivers
+#######################################################################
+print Starting graphics driver...
+io-graphics -ds3c2410 xres=800,yres=480,bitpp=16,photon,mode_opts=/etc/s3c2410.conf -pphoton &
+print Starting input driver...
+devi-hid kbd mouse &
+pwm &
+devi-2440 touchscreen &
+waitfor /dev/io-graphics/s3c24100 4
+#pterm &
+
+
+
+
+
+
+
+#MobileDemo &
+
+
+#######################################################################
+## Start the process XYZ
+#######################################################################
+print Starting XYZ Interface process...
+/usr/bin/infusion_pump_intf -x35 -y20 &
+
+print Starting XYZ Core process...
+/usr/bin/infusion_pump_core &
+
+exec /bin/sh
